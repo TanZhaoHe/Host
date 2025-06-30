@@ -48,12 +48,9 @@
 
 ```
 python manage.py shell
-
-
-from apphost.tasks import update\_all\_host\_passwords
-
-
-update\_all\_host\_passwords.delay()
+>>> from apphost.tasks import update_all_host_passwords
+>>> result = update_all_host_passwords.delay()
+>>> result.status  # 应显示 'SUCCESS'
 ```
 
 
@@ -61,7 +58,7 @@ update\_all\_host\_passwords.delay()
 
 
 
-### 3. 主机数量统计&#xA;
+### 3. 主机统计&#xA;
 
 
 
@@ -71,7 +68,17 @@ update\_all\_host\_passwords.delay()
 *   **结果查询**：在管理后台的 "主机数量统计" 模块查看历史统计数据
 
 
-*   **自定义统计**：通过 API 接口 `GET /api/statistics/` 获取实时统计结果
+*   **手动实时统计**：
+
+```
+python manage.py shell
+>>> from apphost.tasks import daily_host_statistics
+>>> result = daily_host_statistics.delay()
+>>> print(result.get())
+```
+
+
+
 
 
 ### 4. API 接口使用&#xA;
@@ -81,7 +88,7 @@ update\_all\_host\_passwords.delay()
 *   **查看文档**：访问 `http://127.0.0.1:8000/docs/` 查看交互式 API 文档
 
 
-*   **示例请求**：
+
 
 
 
@@ -198,6 +205,30 @@ celery -A host1 beat --loglevel=info
 功能实现截图
 
 ![image](https://github.com/user-attachments/assets/5789dc5a-5019-4d85-8208-74bccf3fca2c)
+
+![image](https://github.com/user-attachments/assets/d08ca520-0a0d-4af1-af50-282e83343222)
+
+![image](https://github.com/user-attachments/assets/059bbff2-6405-4324-8854-f5e93e7d4a0b)
+
+![image](https://github.com/user-attachments/assets/86131d5d-4fdf-4638-8a29-48b521f843d1)
+
+![image](https://github.com/user-attachments/assets/90122b21-65ee-43f6-9b35-c34ab0a94fb8)
+
+![image](https://github.com/user-attachments/assets/a15772d1-d4ad-4b3f-add7-b1591c87bb73)
+
+![image](https://github.com/user-attachments/assets/08f9f332-5dac-4175-97cc-e4cc8f63329d)
+
+![image](https://github.com/user-attachments/assets/ddbb8b25-ddff-4545-b540-a44875f8dfdc)
+
+
+
+
+
+
+
+
+
+
 
 
 
