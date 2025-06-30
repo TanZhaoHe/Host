@@ -1,0 +1,4 @@
+INFO 2025-06-30 17:27:28,438 middleware 42292 50380 路径: /admin/apphost/host/ | 方法: GET | 耗时: 155.77ms | 状态: 200
+INFO 2025-06-30 17:27:28,528 middleware 42292 50380 路径: /admin/jsi18n/ | 方法: GET | 耗时: 17.51ms | 状态: 200
+INFO 2025-06-30 17:27:30,048 middleware 42292 9616 路径: /admin/apphost/host/ | 方法: GET | 耗时: 43.15ms | 状态: 200
+INFO 2025-06-30 17:27:30,089 middleware 42292 9616 路径: /admin/jsi18n/ | 方法: GET | 耗时: 10.34ms | 状态: 200
